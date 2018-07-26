@@ -1,7 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
-import Users from './containers/users/users.js';
+import { hashHistory } from 'react-router'
+
+import RouteMap from './router/routeMap.js'
 
 
-
-render(<Users />, document.querySelector('#root'));
+render(<RouteMap history={hashHistory} />, document.querySelector('#root'));

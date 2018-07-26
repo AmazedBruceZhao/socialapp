@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom'
 
 class List extends Component{
 	constructor(props, context){
@@ -8,7 +9,7 @@ class List extends Component{
 	render(){
 		
 		const list = this.props.value.map((user, index) => 
-			<li key={index}>{user}</li>
+			<li key={index}><Link to={'/users/' + index}>{user}</Link></li>
 		)
 		return (
 			

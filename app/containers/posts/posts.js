@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 import List from '../../components/list.js'
 
-class Users extends Component{
+class Posts extends Component{
 	constructor(props, context){
 		super(props, context)
 		this.state = {
-			userlist: ['user1', 'user2']
+			posts: ['post1', 'post2']
 		}
 	}
 	render(){
 		return (
-				<List value={this.state.userlist}></List>
+				<List value={this.state.posts}></List>
 		)
 	}
 	componentDidMount(){
@@ -19,4 +19,4 @@ class Users extends Component{
 	}
 }
 
-export default Users
+export default Posts
