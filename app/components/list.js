@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 
 class List extends Component{
@@ -8,8 +8,12 @@ class List extends Component{
 	}
 	render(){
 		
-		const list = this.props.value.map((user, index) => 
-			<li key={index}><Link to={'/users/' + index}>{user}</Link></li>
+		const list = this.props.value.map((post, index) =>
+				<div key={post.id}>
+					<Link to={'/users/' + post.userId}>{post.userId}</Link>
+					<div>{post.title}</div>
+                    <div>{post.body}</div>
+				</div>
 		)
 		return (
 			
@@ -19,6 +23,7 @@ class List extends Component{
 			
 		)
 	}
+
 }
 
 export default List

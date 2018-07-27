@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
 
 module.exports = {
   mode: 'production',
@@ -12,8 +13,8 @@ module.exports = {
         vendor: Object.keys(pkg.dependencies),
     },
   output: {
-    path: __dirname + "/build/",
-    filename: "js/[name].[chunkhash:16].js"
+    path: path.resolve(__dirname, 'build'),
+    filename: "js/[name].[chunkhash:16].js",
   },
   devServer: {
     contentBase: "./build",//本地服务器所加载的页面所在的目录

@@ -1,17 +1,24 @@
 import React from 'react'
-import { BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
+import Posts from '../containers/posts/posts.js'
+import Users from '../containers/users/users.js'
+import Detail from '../containers/detail/detail.js'
+import NotFound from '../components/notFound.js'
 
-import App from '../containers/app.js'
 
 
 
 class RouteMap extends React.Component {
-    
     render() {
         return (
-             <BrowserRouter history={this.props.history}>
-             	<App />
+             <BrowserRouter>
+                 <Switch>
+                     <Route exact path='/' component={Posts}/>
+                     <Route exact path='/users' component={Users}/>
+                     <Route path='/users/:id' component={Detail}/>
+                     <Route path="*" component={NotFound}/>
+                 </Switch>
             </BrowserRouter>
         )
     }

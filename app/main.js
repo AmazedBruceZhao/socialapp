@@ -1,8 +1,12 @@
-import React from 'react';
-import {render} from 'react-dom';
-import { hashHistory } from 'react-router'
+import React from 'react'
+import {render} from 'react-dom'
+import { Provider } from 'react-redux'
+import configureStore from './store/configureStore'
+const store = configureStore()
+import App from './containers/app.js'
 
-import RouteMap from './router/routeMap.js'
 
-
-render(<RouteMap history={hashHistory} />, document.querySelector('#root'));
+render(
+    <Provider store={store}>
+        <App/>
+    </Provider>, document.querySelector('#root'));

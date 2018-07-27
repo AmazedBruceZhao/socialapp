@@ -1,15 +1,16 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
   entry:  __dirname + "/app/main.js",
   output: {
-    path: __dirname + "/public",
+    path: path.resolve(__dirname, 'public'),
     filename: "bundle.js"
   },
   devServer: {
-    contentBase: "./public",//本地服务器所加载的页面所在的目录
+    contentBase: path.resolve(__dirname, 'public'),//本地服务器所加载的页面所在的目录
     historyApiFallback: true,//不跳转
     inline: true//实时刷新
   },

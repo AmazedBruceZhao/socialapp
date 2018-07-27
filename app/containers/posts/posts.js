@@ -1,22 +1,49 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import List from '../../components/list.js'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import get from '../../fetch/get.js'
+import * as postActions from '../../actions/post.js'
 
 class Posts extends Component{
 	constructor(props, context){
 		super(props, context)
-		this.state = {
-			posts: ['post1', 'post2']
-		}
+
 	}
 	render(){
 		return (
-				<List value={this.state.posts}></List>
+				<List value={this.props.posts}></List>
 		)
 	}
 	componentDidMount(){
 		//fetch
-		//update state
+		const result = get('https://jsonplaceholder.typicode.com/posts')
+		result.then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+		}).then(json => {
+            //update state
+            this.props.postActions.fetchAll(json)
+		}).catch(err => {
+            console.log(err)
+        })
+
 	}
 }
 
-export default Posts
+function mapStateToProps(state) {
+    return {
+        posts: state.posts
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        postActions: bindActionCreators(postActions, dispatch)
+    }
+}
+export default Posts = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Posts)
