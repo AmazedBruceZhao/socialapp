@@ -8,9 +8,9 @@ class List extends Component{
 	}
 	render(){
 		
-		const list = this.props.value.map((post, index) =>
+		const list = this.props.value.map((post) =>
 				<div key={post.id}>
-					<Link to={'/users/' + post.userId}>{post.userId}</Link>
+					<Link to={'/users/' + post.userId}>{post.userName}</Link>
 					<div>{post.title}</div>
                     <div>{post.body}</div>
 				</div>
