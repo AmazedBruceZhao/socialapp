@@ -24,31 +24,30 @@ class Posts extends Component{
             }
 		}).then(json => {
             //update state
-			let map = new Map()
-			let list = []
+			const map = {};
+			const list = [];
 			//init fetch user
 			json.map((post) => {
-				if (post.userId !== undefined && !map.has(post.userId)){
-                    map.set(post.userId, 'Anonymous')
+				if (post.userId !== undefined && !(post.userId in map)){
+                    map[post.userId] = 'Anonymous';
                     list.push(get('https://jsonplaceholder.typicode.com/users/' + post.userId).then((res) => {
                         return res.json()}))
-
 				}
-			})
+			});
 
 			//map userid => name
 			Promise.all(list).then((results) => {
 				results.map((user) => {
-					map.set(user.id, user.name)
-				})
-			})
-			// add user name
-            console.log(map.values())
-            json.map((post) => {
-                post.userName = map.get(post.userId)
-            })
+					console.log(user.id, map);
+					map[user.id] = user.name;
+				});
+                // add user name
+                json.map((post) => {
+                    post.userName = map[post.userId]
+                });
+                this.props.postActions.fetchAll(json);
+			});
 
-            this.props.postActions.fetchAll(json)
 		}).catch(err => {
             console.log(err)
         })
