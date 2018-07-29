@@ -14,12 +14,13 @@ module.exports = {
     },
   output: {
     path: path.resolve(__dirname, 'build'),
+    publicPath:"/",
     filename: "js/[name].[chunkhash:16].js",
   },
   devServer: {
-    contentBase: "./build",//本地服务器所加载的页面所在的目录
-    historyApiFallback: true,//不跳转
-    inline: true//实时刷新
+    contentBase: "./build",
+    historyApiFallback: true,
+    inline: true
   },
   module: {
     

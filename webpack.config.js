@@ -7,12 +7,14 @@ module.exports = {
   entry:  __dirname + "/app/main.js",
   output: {
     path: path.resolve(__dirname, 'public'),
+    publicPath:"/",
     filename: "bundle.js"
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'public'),//本地服务器所加载的页面所在的目录
-    historyApiFallback: true,//不跳转
-    inline: true//实时刷新
+    contentBase: path.resolve(__dirname, 'public'),
+     publicPath:"/",
+    historyApiFallback: true,
+    inline: true
   },
   module: {
         rules: [

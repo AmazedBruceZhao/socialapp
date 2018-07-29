@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "NODE_ENV=dev && webpack",
+    "webpack": "rm -rf ./public && NODE_ENV=dev && webpack",
     "build": "rm -rf ./build && set NODE_ENV=production && webpack --config ./webpack.production.config.js --progress",
     "server": "webpack-dev-server --progress --colors"
   },
@@ -29,11 +29,13 @@
   },
   "dependencies": {
     "es6-promise": "^4.2.4",
+    "google-map-react": "^1.0.5",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
+    "semantic-ui-react": "^0.82.1",
     "whatwg-fetch": "^2.0.4"
   }
 }

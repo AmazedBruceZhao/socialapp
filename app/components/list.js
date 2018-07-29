@@ -1,29 +1,18 @@
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom'
+import Post from '../containers/post/post.js'
+import { Comment } from 'semantic-ui-react'
 
 class List extends Component{
-	constructor(props, context){
-		super(props, context)
-		
-	}
 	render(){
-		
-		const list = this.props.value.map((post) =>
-				<div key={post.id}>
-					<Link to={'/users/' + post.userId}>{post.userName}</Link>
-					<div>{post.title}</div>
-                    <div>{post.body}</div>
-				</div>
-		)
+		const list = this.props.value.map((post, index) =>
+				<Post key = {index} post = {post}/>
+		);
 		return (
-			
-				<ul>
+				<Comment.Group>
 					{list}
-				</ul>
-			
+				</Comment.Group>
 		)
 	}
-
 }
 
 export default List
