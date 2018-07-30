@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import List from '../../components/list.js'
 import get from '../../fetch/get.js'
-import Header from "../../components/header";
 
 
 class Posts extends Component{

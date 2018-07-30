@@ -3,7 +3,6 @@ import Detail from "../../components/detail";
 import get from "../../fetch/get";
 import Content from "./content/content";
 import { Menu, Icon } from 'semantic-ui-react'
-import Header from "../../components/header";
 
 class User extends Component {
     constructor(props, context){
@@ -17,7 +16,6 @@ class User extends Component {
     render() {
         return (
             <div>
-                <Header/>
                 <Detail data = {this.state.detail}/>
                 <Menu fluid widths={3}>
                     <Menu.Item name='todo' active={this.state.content === 'todo'} onClick={() => {this.setState({content: 'todo'})}}>
