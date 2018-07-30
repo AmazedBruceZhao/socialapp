@@ -14,7 +14,6 @@ class Posts extends Component{
 	render(){
 		return (
 			<div>
-				<Header/>
 				<List value={this.state.posts} />
             </div>
 		)
