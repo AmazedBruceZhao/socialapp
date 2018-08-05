@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Divider, Image } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
 
 class PhotoList extends Component {
     render(){

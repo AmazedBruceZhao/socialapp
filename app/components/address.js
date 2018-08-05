@@ -12,8 +12,8 @@ class Address extends Component {
                     <li>City: {data.city}</li>
                     <li>Zip: {data.zipcode}</li>
                     {
-                        /*could be activated by purchasing api key*/
-                        /*<Map center = {{lat: Number(data.geo.lat), lng:Number(data.geo.lng)}} zoom = {10}/>*/}
+                        <Map center = {{lat: Number(data.geo.lat), lng:Number(data.geo.lng)}} />
+                    }
                 </ul>
             </div>
         );

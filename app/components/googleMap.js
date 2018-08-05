@@ -2,6 +2,10 @@ import React, {Component} from 'react'
 import GoogleMapReact from 'google-map-react'
 
 class Map extends Component{
+    constructor(props){
+        super(props);
+
+    }
     render(){
 
         return (
@@ -14,5 +18,10 @@ class Map extends Component{
         )
     }
 }
-
+Map.defaultProps = {
+    defaultCenter: {
+        lat: 0, lng:0
+    },
+    defaultZoom: 10
+};
 export default Map
