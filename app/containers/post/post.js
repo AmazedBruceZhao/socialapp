@@ -3,6 +3,7 @@ import {Link} from "react-router-dom"
 import Comments from '../../components/comments.js'
 import get from "../../fetch/get";
 import { Comment, Icon } from 'semantic-ui-react'
+import PropTypes from 'prop-types';
 
 class Post extends Component{
     constructor(props, context){
@@ -10,6 +11,7 @@ class Post extends Component{
         this.state = {
             comments: []
         }
+
     }
     render() {
         const post = this.props.post;
@@ -32,7 +34,7 @@ class Post extends Component{
 }
 
 function buttonClick(e){
-    e.stopPropagation();
+    //e.preventDefault();
     if (this.state.comments.length > 0) {
         this.setState({
             comments: []
@@ -54,5 +56,8 @@ function buttonClick(e){
     });
 }
 
+Post.propTypes = {
+    post: PropTypes.object,
+};
 
 export default Post
